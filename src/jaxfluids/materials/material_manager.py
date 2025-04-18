@@ -674,8 +674,7 @@ class MaterialManager:
             raise NotImplementedError # TODO deniz
         
         elif self.equation_type == "DIFFUSE-INTERFACE-5EQM":
-            raise NotImplementedError # TODO deniz
-
+           specific_heat_capacity = self.diffuse_5eqm_mixture.get_specific_heat_capacity(temperature, primitives)
         else:
             raise NotImplementedError
 

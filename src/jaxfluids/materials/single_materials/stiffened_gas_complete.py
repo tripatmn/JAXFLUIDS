@@ -30,9 +30,12 @@ class StiffenedGasComplete(Material):
         self.gamma = eos_setup.specific_heat_ratio
         self.R = eos_setup.specific_gas_constant
         self.cp = self.gamma / (self.gamma - 1) * self.R
-        self.pb = eos_setup.material_setup.background_pressure
-        self.eb = eos_setup.material_setup.energy_translation_factor
-        self.et = eos_setup.material_setup.thermal_energy_factor
+        self.pb = eos_setup.background_pressure
+        self.eb = eos_setup.energy_translation_factor
+        self.et = eos_setup.thermal_energy_factor
+        
+        self._set_transport_properties()
+
 
     def get_psi(self, p: Array, rho: Array) -> Array:
         return ( p + self.gamma * self.pb ) / rho

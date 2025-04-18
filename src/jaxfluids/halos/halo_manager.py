@@ -341,17 +341,17 @@ class HaloManager:
 
         if self.is_parallel:
             curvature = self.halo_communication_material.face_halo_update(
-                curvature, is_geometry_halos=True)
+                curvature)
             curvature = self.boundary_condition_curvature.face_halo_update(
                 curvature)
             if self.dim > 1:
                 curvature = self.halo_communication_material.edge_halo_update(
-                    curvature, is_geometry_halos=True)
+                    curvature)
                 curvature = self.boundary_condition_curvature.edge_halo_update(
                     curvature)
             if self.dim == 3:
                 curvature = self.halo_communication_material.vertex_halo_update(
-                    curvature, is_geometry_halos=True)
+                    curvature)
                 curvature = self.boundary_condition_curvature.vertex_halo_update(
                     curvature)
         else:
